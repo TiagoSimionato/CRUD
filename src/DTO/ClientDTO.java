@@ -1,6 +1,7 @@
 package DTO;
 
 public class ClientDTO {
+    //Parametros que vem da tabela do banco de dados
     private int id;
     private String name;
     private int age;
