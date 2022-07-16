@@ -33,11 +33,11 @@ public class MainClass {
                     cdto.setEmail(email);
             
                     //DAO irá realizar a operação de inserir
-                    ClientDAO cdao = new ClientDAO();
+                    ClientDAO cdao = new ClientDAO("clientes", "root", "");
                     cdao.insertClient(cdto);
                     break;
                 case "READ":
-                    cdao = new ClientDAO();
+                    cdao = new ClientDAO("clientes", "root", "");
                     ArrayList<ClientDTO> clients = cdao.selectClient();
                     queryPrint(clients);
                     break;
@@ -59,7 +59,7 @@ public class MainClass {
                     cdto.setId(id);
             
                     //DAO irá realizar a operação de atualização
-                    cdao = new ClientDAO();
+                    cdao = new ClientDAO("clientes", "root", "");
                     cdao.updateClient(cdto);
                     break;
                 case "DELETE":
@@ -71,7 +71,7 @@ public class MainClass {
                     cdto.setId(id);
 
                     //DAO do cliente apaga o registro
-                    cdao = new ClientDAO();
+                    cdao = new ClientDAO("clientes", "root", "");
                     cdao.deleteById(id);
                     break;
             }

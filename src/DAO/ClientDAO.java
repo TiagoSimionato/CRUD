@@ -10,9 +10,19 @@ import java.util.ArrayList;
 
 public class ClientDAO {
 
-    Connection conn;
-    PreparedStatement pstm;
-    ResultSet rs;
+    private Connection conn;
+    private PreparedStatement pstm;
+    private ResultSet rs;
+
+    private final String username;
+    private final String password;
+    private final String dbName;
+
+    public ClientDAO(String dbName, String username, String password) {
+        this.dbName = dbName;
+        this.username = username;
+        this.password = password;
+    }
 
     //CREATE
     //funcao create do crud. Recebe uma representação de um cliente e o insere no banco de dados
@@ -22,7 +32,7 @@ public class ClientDAO {
 
         try {
             //Criar conexão com banco de dados
-            conn = ConnectionFactory.connectSQL();
+            conn = ConnectionFactory.connectSQL(dbName, username, password);
             
             //Preparo a query
             pstm = conn.prepareStatement(sql);
@@ -63,7 +73,7 @@ public class ClientDAO {
 
         try {
             //inicio a conexão com o banco
-            conn = ConnectionFactory.connectSQL();
+            conn = ConnectionFactory.connectSQL(dbName, username, password);
 
             //preparo a query
             pstm = conn.prepareStatement(sql);
@@ -118,7 +128,7 @@ public class ClientDAO {
 
         try {
             //inicio a conexão com o banco
-            conn = ConnectionFactory.connectSQL();
+            conn = ConnectionFactory.connectSQL(dbName, username, password);
 
             //preparo a query
             pstm = conn.prepareStatement(sql);
@@ -157,7 +167,7 @@ public class ClientDAO {
 
         try {
             //inicio a conexão com o banco
-            conn = ConnectionFactory.connectSQL();
+            conn = ConnectionFactory.connectSQL(dbName, username, password);
 
             //preparo a query
             pstm = conn.prepareStatement(sql);
