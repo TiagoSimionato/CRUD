@@ -2,6 +2,7 @@ package VIEW;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.ClientDAO;
@@ -281,7 +282,7 @@ public class ClientVIEW extends javax.swing.JFrame {
         cdto.setId(id);
 
         //DAO irá realizar a operação de atualização
-        ClientDAO cdao = new ClientDAO("clientes", "root", "");
+        ClientDAO cdao = new ClientDAO(dbNametxt.getText(), usernameTxt.getText(),  String.valueOf(passwordTxt.getPassword()));
         cdao.updateClient(cdto);
     }                                       
 
@@ -293,7 +294,7 @@ public class ClientVIEW extends javax.swing.JFrame {
         cdto.setId(id);
         
         //DAO do cliente apaga o registro
-        ClientDAO cdao = new ClientDAO("clientes", "root", "");
+        ClientDAO cdao = new ClientDAO(dbNametxt.getText(), usernameTxt.getText(),  String.valueOf(passwordTxt.getPassword()));
         cdao.deleteById(id);
     }                                       
 
@@ -373,6 +374,7 @@ public class ClientVIEW extends javax.swing.JFrame {
                 });
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }

@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class ClientDAO {
 
     private Connection conn;
@@ -46,6 +48,7 @@ public class ClientDAO {
 
             System.out.println("Informações inseridas com sucesso");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         } finally {
             //por fim fechos conexões que estiverem abertas
@@ -58,6 +61,7 @@ public class ClientDAO {
                     pstm.close();
                 }
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         }
@@ -91,6 +95,7 @@ public class ClientDAO {
                 clientList.add(cdto);
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         } finally {
             //fecho conexões abertas
@@ -107,6 +112,7 @@ public class ClientDAO {
                     rs.close();
                 }
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         }
@@ -143,6 +149,7 @@ public class ClientDAO {
             //query pronta ja pode ser executada
             pstm.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         } finally {
             try {
@@ -154,6 +161,7 @@ public class ClientDAO {
                     pstm.close();
                 }
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         }
@@ -177,6 +185,7 @@ public class ClientDAO {
             //query esta pronta
             pstm.execute();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         } finally {
             //por fim fechos conexões que estiverem abertas
@@ -189,6 +198,7 @@ public class ClientDAO {
                     pstm.close();
                 }
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ClientDAO: " + e, "Erro", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         }
